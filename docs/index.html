@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Petit Jardin Studio — Chasse au trèfle</title>
+<style>
+:root{--vert:#2e7d32;--clair:#e8f5e9;--soleil:#ffd54f;--texte:#1b3a1d}
+*{box-sizing:border-box}body{margin:0;font-family:"Nunito",system-ui,sans-serif;color:var(--texte);background:#fbfdf8}
+header{display:flex;justify-content:space-between;align-items:center;padding:16px 6vw;position:sticky;top:0;background:#fbfdf8ee;backdrop-filter:blur(6px);z-index:9}
+.logo{font-weight:800;font-size:1.2rem;color:var(--vert)}nav a{margin-left:20px;color:var(--texte);text-decoration:none;font-weight:600}
+.lang{cursor:pointer;border:2px solid var(--vert);border-radius:20px;padding:4px 12px;background:none;color:var(--vert);font-weight:700;margin-left:20px}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding:60px 6vw;background:linear-gradient(180deg,#e8f5e9,#fbfdf8)}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);margin:0 0 12px;line-height:1.1}.hero p{font-size:1.2rem}
+.badge{display:inline-block;background:var(--soleil);padding:6px 14px;border-radius:20px;font-weight:800;margin-bottom:16px}
+.btn{display:inline-block;background:var(--vert);color:#fff;padding:14px 26px;border-radius:30px;text-decoration:none;font-weight:800;margin-top:16px}
+.visuel{aspect-ratio:4/3;border-radius:30px;background:#c8e6c9;display:flex;align-items:center;justify-content:center;font-size:7rem;animation:pousse 3s ease-in-out infinite}
+@keyframes pousse{50%{transform:translateY(-8px) rotate(3deg)}}
+section{padding:60px 6vw}h2{font-size:2rem;color:var(--vert)}
+.cartes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.carte{background:#fff;border-radius:24px;padding:24px;box-shadow:0 6px 20px #2e7d3215}.carte .ico{font-size:2.4rem}
+.histoire{background:var(--clair);border-radius:30px;margin:0 6vw;font-size:1.15rem}
+.parents ul{line-height:2}footer{text-align:center;padding:40px;color:#567}
+@media(max-width:800px){.hero{grid-template-columns:1fr}nav a{display:none}}
+</style></head><body>
+<header><div class="logo">🍀 Petit Jardin Studio</div><nav><a href="#app" data-i="n1">L'appli</a><a href="#histoire" data-i="n2">Notre histoire</a><a href="#parents" data-i="n3">Parents</a><button class="lang" onclick="tl()">EN</button></nav></header>
+<div class="hero" id="app"><div><span class="badge" data-i="b">Sans publicité</span>
+<h1 data-i="h">L'écran qui envoie jouer dehors</h1>
+<p data-i="p">Les enfants partent à la chasse au trèfle à quatre feuilles dans leur jardin. L'appareil photo les aide à le trouver, et chaque trouvaille rejoint leur herbier.</p>
+<a class="btn" href="#" data-i="c">Bientôt sur Google Play</a></div>
+<div class="visuel" aria-label="main tenant un trèfle à quatre feuilles"><img src="https://images.unsplash.com/photo-1745503531637-e843c4c44855?fm=jpg&q=70&w=1200&auto=format&fit=crop" alt="Main tenant un trèfle à quatre feuilles" style="width:100%;height:100%;object-fit:cover;border-radius:30px" onerror="this.replaceWith('🍀')"></div></div>
+<section><h2 data-i="t1">Trouver, collecter, garder</h2><div class="cartes">
+<div class="carte"><div class="ico">🔍</div><h3 data-i="k1">Je cherche</h3><p data-i="k1p">L'enfant explore l'herbe, le téléphone l'aide à repérer le trèfle magique.</p></div>
+<div class="carte"><div class="ico">🌱</div><h3 data-i="k2">Je choisis</h3><p data-i="k2p">Le laisser pousser et devenir gardien du jardin, ou le cueillir et le faire sécher.</p></div>
+<div class="carte"><div class="ico">📖</div><h3 data-i="k3">Mon herbier</h3><p data-i="k3p">Chaque trèfle trouvé rejoint son herbier. Bientôt : les fleurs !</p></div></div></section>
+<section class="histoire" id="histoire"><h2 data-i="t2">Notre histoire</h2><p data-i="s">Enfant, je passais des heures à chercher des trèfles à quatre feuilles dans le jardin. Aujourd'hui je travaille dans l'intelligence artificielle, et j'ai voulu mettre cette technologie au service de cette même magie : une détection en temps réel, directement sur le téléphone, pour donner aux enfants l'envie de sortir. — Jason</p></section>
+<section class="parents" id="parents"><h2 data-i="t3">Pour les parents</h2><ul>
+<li data-i="l1">✅ Aucune publicité, jamais</li><li data-i="l2">✅ Tout fonctionne sur le téléphone, aucune photo envoyée</li><li data-i="l3">✅ Réglages protégés par un code parent</li><li data-i="l4">✅ Pensé pour passer plus de temps dehors que sur l'écran</li></ul>
+<p><span data-i="ct">Contact :</span> <a href="mailto:contact.petitjardinstudio@gmail.com">contact.petitjardinstudio@gmail.com</a></p></section>
+<footer>© 2026 Petit Jardin Studio</footer>
+<script>
+const en={n1:"The app",n2:"Our story",n3:"Parents",b:"No ads",h:"The screen that sends kids outside",p:"Kids go hunting for four-leaf clovers in their garden. The camera helps them find one, and every find goes into their herbarium.",c:"Coming soon on Google Play",t1:"Find, collect, keep",k1:"I search",k1p:"Kids explore the grass while the phone helps spot the lucky clover.",k2:"I choose",k2p:"Let it grow and become a garden guardian, or pick it and press it.",k3:"My herbarium",k3p:"Every clover found joins their herbarium. Flowers coming soon!",t2:"Our story",s:"As a kid, I spent hours looking for four-leaf clovers in the garden. Today I work in artificial intelligence, and I wanted to put that technology to work for the same magic: real-time detection, right on the phone, to make kids want to go outside. — Jason",t3:"For parents",l1:"✅ No ads, ever",l2:"✅ Everything runs on the phone, no photos uploaded",l3:"✅ Settings protected by a parent code",l4:"✅ Designed for more time outside than on screen",ct:"Contact:"};
+const fr={};document.querySelectorAll("[data-i]").forEach(e=>fr[e.dataset.i]=e.innerHTML);let cur="fr";
+function tl(){cur=cur=="fr"?"en":"fr";const d=cur=="fr"?fr:en;document.querySelectorAll("[data-i]").forEach(e=>e.innerHTML=d[e.dataset.i]);document.documentElement.lang=cur;document.querySelector(".lang").textContent=cur=="fr"?"EN":"FR"}
+if(navigator.language&&!navigator.language.startsWith("fr"))tl();
+</script></body></html>
