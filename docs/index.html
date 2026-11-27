@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Petit Jardin Studio — Chasse au trèfle</title>
+<meta name="description" content="Chasseur de trèfles : l'appli Android qui envoie les enfants chercher des trèfles à quatre feuilles dehors. Sans publicité, aucune donnée collectée.">
 <style>
 :root{--vert:#2e7d32;--clair:#e8f5e9;--soleil:#ffd54f;--texte:#1b3a1d}
 *{box-sizing:border-box}body{margin:0;font-family:"Nunito",system-ui,sans-serif;color:var(--texte);background:#fbfdf8}
@@ -8,37 +9,120 @@ header{display:flex;justify-content:space-between;align-items:center;padding:16p
 .logo{font-weight:800;font-size:1.2rem;color:var(--vert)}nav a{margin-left:20px;color:var(--texte);text-decoration:none;font-weight:600}
 .lang{cursor:pointer;border:2px solid var(--vert);border-radius:20px;padding:4px 12px;background:none;color:var(--vert);font-weight:700;margin-left:20px}
 .hero{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding:60px 6vw;background:linear-gradient(180deg,#e8f5e9,#fbfdf8)}
+.hero>*{min-width:0}
 .hero h1{font-size:clamp(2rem,5vw,3.4rem);margin:0 0 12px;line-height:1.1}.hero p{font-size:1.2rem}
 .badge{display:inline-block;background:var(--soleil);padding:6px 14px;border-radius:20px;font-weight:800;margin-bottom:16px}
 .btn{display:inline-block;background:var(--vert);color:#fff;padding:14px 26px;border-radius:30px;text-decoration:none;font-weight:800;margin-top:16px}
-.visuel{aspect-ratio:4/3;border-radius:30px;background:#c8e6c9;display:flex;align-items:center;justify-content:center;font-size:7rem;animation:pousse 3s ease-in-out infinite}
-.visuel{position:relative}.hero>*{min-width:0}.visuel img{max-width:100%}.credit{position:absolute;right:14px;bottom:10px;font-size:.75rem;color:#fff;background:#0006;padding:2px 8px;border-radius:10px}
+.btn.alt{background:none;color:var(--vert);border:2px solid var(--vert);margin-left:8px}
+.visuel{position:relative;aspect-ratio:4/3;border-radius:30px;background:#c8e6c9;display:flex;align-items:center;justify-content:center;font-size:7rem;animation:pousse 3s ease-in-out infinite}
+.visuel img{width:100%;height:100%;max-width:100%;object-fit:cover;object-position:50% 40%;border-radius:30px}
+.credit{position:absolute;right:14px;bottom:10px;font-size:.75rem;color:#fff;background:#0006;padding:2px 8px;border-radius:10px}
 @keyframes pousse{50%{transform:translateY(-8px) rotate(3deg)}}
-section{padding:60px 6vw}h2{font-size:2rem;color:var(--vert)}
+section{padding:60px 6vw}h2{font-size:2rem;color:var(--vert);margin-top:0}
 .cartes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
 .carte{background:#fff;border-radius:24px;padding:24px;box-shadow:0 6px 20px #2e7d3215}.carte .ico{font-size:2.4rem}
+.ecrans{display:flex;gap:22px;justify-content:center;flex-wrap:wrap}
+.liste{line-height:1.8;padding-left:1.2em}
+.tel{width:150px;border:10px solid #1b3a1d;border-radius:34px;overflow:hidden;box-shadow:0 10px 30px #2e7d3230;background:#fff}
+.tel img{display:block;width:100%}
+.ecrans figcaption{text-align:center;font-weight:700;margin-top:10px}
+.amis{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;align-items:start;max-width:820px}
+.ami{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 6px 20px #2e7d3215}
+.ami img{display:block;width:100%;aspect-ratio:1;object-fit:cover}.ami div{padding:18px 22px}
+.ami h3{margin:0 0 6px}.ok{color:var(--vert)}.ko{color:#c62828}
 .histoire{background:var(--clair);border-radius:30px;margin:0 6vw;font-size:1.15rem}
-.parents ul{line-height:2}footer{text-align:center;padding:40px;color:#567}
-@media(max-width:800px){.hero{grid-template-columns:1fr}nav a{display:none}}
+.parents ul{line-height:2;padding-left:1.2em}
+.prix{background:#fff;border:3px solid var(--soleil);border-radius:24px;padding:20px 24px;margin-top:24px;font-size:1.1rem}
+details{background:#fff;border-radius:18px;padding:16px 20px;margin-bottom:12px;box-shadow:0 4px 14px #2e7d3210}
+summary{font-weight:800;cursor:pointer}
+.testeurs{background:var(--clair);border-radius:30px;margin:0 6vw 60px;font-size:1.1rem}
+footer{text-align:center;padding:40px;color:#567}footer a{color:#567;margin:0 8px}
+@media(max-width:800px){.hero{grid-template-columns:1fr}nav a{display:none}.btn.alt{margin-left:0}}
 </style></head><body>
-<header><div class="logo">🍀 Petit Jardin Studio</div><nav><a href="#app" data-i="n1">L'appli</a><a href="#histoire" data-i="n2">Notre histoire</a><a href="#parents" data-i="n3">Parents</a><button class="lang" onclick="tl()">EN</button></nav></header>
-<div class="hero" id="app"><div><span class="badge" data-i="b">Sans publicité</span>
+<header><div class="logo">🍀 Petit Jardin Studio</div><nav><a href="#app" data-i="n1">L'appli</a><a href="#faux-amis" data-i="n4">Faux amis</a><a href="#techno" data-i="n6">Technologie</a><a href="#parents" data-i="n3">Parents</a><a href="#testeurs" data-i="n5">Tester</a><button class="lang" onclick="tl()">EN</button></nav></header>
+
+<div class="hero" id="app"><div><span class="badge" data-i="b">Sans publicité · aucune donnée collectée</span>
 <h1 data-i="h">L'écran qui envoie jouer dehors</h1>
-<p data-i="p">Les enfants partent à la chasse au trèfle à quatre feuilles dans leur jardin. L'appareil photo les aide à le trouver, et chaque trouvaille rejoint leur herbier.</p>
-<a class="btn" href="#" data-i="c">Bientôt sur Google Play</a></div>
-<div class="visuel" aria-label="main tenant un trèfle à quatre feuilles"><img src="trefle-4-feuilles.jpg" alt="Main tenant un trèfle à quatre feuilles" style="width:100%;height:100%;object-fit:cover;object-position:50% 40%;border-radius:30px" onerror="this.replaceWith('🍀')"><span class="credit" data-i="ia">Image générée par IA</span></div></div>
-<section><h2 data-i="t1">Trouver, collecter, garder</h2><div class="cartes">
-<div class="carte"><div class="ico">🔍</div><h3 data-i="k1">Je cherche</h3><p data-i="k1p">L'enfant explore l'herbe, le téléphone l'aide à repérer le trèfle magique.</p></div>
-<div class="carte"><div class="ico">🌱</div><h3 data-i="k2">Je choisis</h3><p data-i="k2p">Le laisser pousser et devenir gardien du jardin, ou le cueillir et le faire sécher.</p></div>
-<div class="carte"><div class="ico">📖</div><h3 data-i="k3">Mon herbier</h3><p data-i="k3p">Chaque trèfle trouvé rejoint son herbier. Bientôt : les fleurs !</p></div></div></section>
+<p data-i="p">Les enfants partent à la chasse au trèfle à quatre feuilles dans leur jardin. L'appareil photo les aide à le trouver, et chaque trouvaille rejoint leur collection.</p>
+<a class="btn" href="#testeurs" data-i="c">Bientôt sur Google Play</a><a class="btn alt" href="#testeurs" data-i="c2">Devenir testeur</a></div>
+<div class="visuel" aria-label="main tenant un trèfle à quatre feuilles"><img src="trefle-4-feuilles.jpg" alt="Main tenant un trèfle à quatre feuilles" onerror="this.replaceWith('🍀')"><span class="credit" data-i="ia">Image générée par IA</span></div></div>
+
+<section><h2 data-i="t1">Trouver, compter, garder</h2><div class="cartes">
+<div class="carte"><div class="ico">🔍</div><h3 data-i="k1">Je cherche</h3><p data-i="k1p">L'enfant explore l'herbe, le téléphone l'aide à repérer le trèfle magique. Un cadre doré s'allume quand il en voit un.</p></div>
+<div class="carte"><div class="ico">✋</div><h3 data-i="k2">Je compte</h3><p data-i="k2p">L'enfant compte lui-même les feuilles : 3 ou 4 ? Il apprend à regarder de près.</p></div>
+<div class="carte"><div class="ico">📖</div><h3 data-i="k3">Ma collection</h3><p data-i="k3p">Chaque trèfle trouvé rejoint sa collection, et la mascotte Trèflou grandit avec elle. Un tuto explique comment faire sécher le vrai trèfle.</p></div></div></section>
+
+<section><h2 data-i="t6">L'appli en images</h2><div class="ecrans">
+<figure><div class="tel"><img data-src="img/ouverture" src="img/ouverture-fr.jpg" alt="Écran d'ouverture"></div><figcaption data-i="e0">L'ouverture</figcaption></figure>
+<figure><div class="tel"><img data-src="img/accueil" src="img/accueil-fr.jpg" alt="Écran d'accueil de l'appli"></div><figcaption data-i="e1">L'accueil, avec Trèflou</figcaption></figure>
+<figure><div class="tel"><img data-src="img/tutoriel" src="img/tutoriel-fr.jpg" alt="La présentation"></div><figcaption data-i="e4">La présentation</figcaption></figure>
+<figure><div class="tel"><img data-src="img/guide" src="img/guide-fr.jpg" alt="Le guide du chasseur"></div><figcaption data-i="e2">Le guide du chasseur</figcaption></figure>
+<figure><div class="tel"><img data-src="img/garder" src="img/garder-fr.jpg" alt="Garder son trèfle"></div><figcaption data-i="e3">Garder son trèfle</figcaption></figure>
+</div></section>
+
+<section id="faux-amis"><h2 data-i="t4">Vrai trèfle ou faux ami ?</h2>
+<p data-i="fa">Beaucoup de plantes ressemblent au trèfle. Le guide de l'appli apprend aux enfants à les reconnaître.</p>
+<div class="amis">
+<div class="ami"><img src="img/vrai-trefle.jpg" alt="Vrai trèfle à quatre feuilles"><div><h3 class="ok" data-i="a1">✅ Le vrai trèfle à 4 feuilles</h3><p data-i="a1p">Folioles arrondies, avec souvent un « V » blanchâtre dessiné sur chacune. C'est le trèfle blanc des pelouses.</p></div></div>
+<div class="ami"><img src="img/oxalis.jpg" alt="Oxalis, le faux trèfle porte-bonheur"><div><h3 class="ko" data-i="a2">❌ L'oxalis « porte-bonheur »</h3><p data-i="a2p">Folioles en forme de cœur. Vendue en pot comme « trèfle à 4 feuilles », ce n'est pas un trèfle !</p></div></div>
+</div><p style="font-size:.8rem;color:#567" data-i="pc">Photos : Anne Parsons, Mal Bennett (iNaturalist, CC0).</p></section>
+
+<section id="techno"><h2 data-i="t7">La technologie</h2>
+<p data-i="tc1">L'appli utilise deux réseaux de neurones conçus pour cette chasse, qui tournent <b>entièrement sur le téléphone</b> : aucune photo n'est envoyée, et tout fonctionne sans réseau.</p>
+<div class="cartes">
+<div class="carte"><div class="ico">🔎</div><h3 data-i="tk1">1. Le détecteur</h3><p data-i="tk1p">Il parcourt l'image de la caméra à trois zooms différents et repère, en une vingtaine de millisecondes, tout ce qui pourrait être un trèfle à 4 feuilles. Il peut en trouver plusieurs à la fois.</p></div>
+<div class="carte"><div class="ico">🔬</div><h3 data-i="tk2">2. Le vérificateur</h3><p data-i="tk2p">Chaque candidat est examiné en haute résolution : forme des folioles, marque blanche en « V », nombre de feuilles. Il a appris d'un grand modèle de vision (DINOv2) avant d'être réduit pour le téléphone. Il ne lui faut que 2 ms par trèfle.</p></div>
+<div class="carte"><div class="ico">👧</div><h3 data-i="tk3">3. L'enfant</h3><p data-i="tk3p">Le dernier mot lui revient : il compte lui-même les feuilles avant de ranger le trèfle dans sa collection. Si l'appli doute, elle affiche « ❓ À vérifier » au lieu de faire la fête.</p></div>
+</div>
+<h3 data-i="tt1">Ce qu'il a appris</h3>
+<ul class="liste" data-i="tl1"><li>Environ 1 600 vrais trèfles à 4 feuilles annotés et des milliers de trèfles à 3 feuilles, venant de nombreux photographes.</li><li>Près de 4 000 photos de « faux amis » : oxalis, marsilée, luzernes…</li><li>Plus de 7 000 photos hors pelouse : feuilles mortes, lierre, jardins, fleurs…</li><li>Des dessins de trèfles et des photos d'écran, pour ne pas se laisser piéger.</li><li>Des trèfles « opérés » : à partir de vrais trèfles, on ajoute ou retire une foliole pour lui apprendre à <i>compter</i>.</li></ul>
+<h3 data-i="tt2">Ses résultats</h3>
+<p data-i="tr1">Mesurés sur des dizaines de milliers de photos qu'il n'a jamais vues pendant son apprentissage :</p>
+<ul class="liste" data-i="tl2"><li><b>99,9 % de tranquillité</b> : sur 23 829 photos de la vie quotidienne, de fleurs, de textures et de lieux, moins d'une sur 1 000 déclenche une fausse alerte. 17 fois moins qu'avant le vérificateur.</li><li><b>Pas dupe des faux amis</b> : seulement 3 fausses alertes sur 5 673 photos pièges (oxalis, marsilée, feuilles mortes, lierre…).</li><li><b>3 trèfles à 4 feuilles sur 4 repérés dès la première image</b>, sur des photos jamais vues. Et pendant que l'enfant balaie la pelouse, la caméra analyse plusieurs images par seconde : chaque trèfle a vite une deuxième, une troisième chance.</li><li>Le petit conseil : approchez-vous ! De tout près, le détecteur est à son meilleur.</li></ul>
+<p style="font-size:.85rem;color:#567" data-i="tl3">Données d'entraînement libres (licences CC0 / CC BY : iNaturalist, Roboflow Universe, Open Images, Openverse, Wikimedia Commons) et modèles open source (Apache 2.0). Les auteurs sont cités dans l'appli.</p>
+</section>
+
 <section class="histoire" id="histoire"><h2 data-i="t2">Notre histoire</h2><p data-i="s">Enfant, je passais des heures à chercher des trèfles à quatre feuilles dans le jardin. Aujourd'hui je travaille dans l'intelligence artificielle, et j'ai voulu mettre cette technologie au service de cette même magie : une détection en temps réel, directement sur le téléphone, pour donner aux enfants l'envie de sortir. — Jason</p></section>
+
 <section class="parents" id="parents"><h2 data-i="t3">Pour les parents</h2><ul>
-<li data-i="l1">✅ Aucune publicité, jamais</li><li data-i="l2">✅ Tout fonctionne sur le téléphone, aucune photo envoyée</li><li data-i="l3">✅ Réglages protégés par un code parent</li><li data-i="l4">✅ Pensé pour passer plus de temps dehors que sur l'écran</li></ul>
+<li data-i="l1">✅ Aucune publicité, jamais</li>
+<li data-i="l2">✅ Aucune donnée collectée : pas de compte, pas de traceur, aucune photo envoyée. La reconnaissance se fait sur le téléphone.</li>
+<li data-i="l3">✅ Espace parents protégé par une question d'adulte</li>
+<li data-i="l4">✅ Pensé pour les enfants qui ne lisent pas encore : grands boutons, voix de la mascotte</li>
+<li data-i="l5">✅ Pensé pour passer plus de temps dehors que sur l'écran</li></ul>
+<div class="prix" data-i="px">🎁 <b>Gratuit 15 minutes de chasse par semaine</b> (recharge chaque lundi). Pour chasser sans limite : <b>un achat unique</b>, sans abonnement, dans l'Espace parents. La collection, la mascotte et le guide restent toujours accessibles.</div>
+<h3 data-i="fq">Questions fréquentes</h3>
+<details><summary data-i="q1">Sur quels téléphones ?</summary><p data-i="r1">Android 8 ou plus récent. Pas encore sur iPhone.</p></details>
+<details><summary data-i="q2">Faut-il Internet ?</summary><p data-i="r2">Non. La chasse fonctionne sans réseau, au fond du jardin comme en vacances. Seul l'achat passe par le Play Store.</p></details>
+<details><summary data-i="q3">Pour quel âge ?</summary><p data-i="r3">Surtout de 4 à 10 ans, avec ou sans un adulte.</p></details>
+<details><summary data-i="q4">La mascotte ne parle pas ?</summary><p data-i="r4">L'appli utilise la synthèse vocale du téléphone. L'Espace parents indique si une voix doit être installée.</p></details>
+<details><summary data-i="q5">L'appli se trompe-t-elle ?</summary><p data-i="r5">Ça peut arriver, surtout de loin. C'est pour ça que l'enfant compte toujours les feuilles lui-même avant de ranger un trèfle dans sa collection.</p></details>
 <p><span data-i="ct">Contact :</span> <a href="mailto:contact.petitjardinstudio@gmail.com">contact.petitjardinstudio@gmail.com</a></p></section>
-<footer>© 2026 Petit Jardin Studio</footer>
+
+<section class="testeurs" id="testeurs"><h2 data-i="t5">Aidez-nous à tester !</h2>
+<p data-i="tt">L'appli est en test avant sa sortie sur Google Play. Vous avez un téléphone Android et un peu de pelouse ? C'est gratuit et ça prend 2 minutes : 1) rejoignez le groupe des testeurs avec votre compte Gmail, 2) sur votre téléphone, ouvrez le lien « Devenir testeur » et installez l'appli. Gardez-la 14 jours et faites quelques chasses !</p>
+<a class="btn" href="https://groups.google.com/g/testeurs-chasseur-de-trfles" data-i="tb">1. Rejoindre le groupe</a> <a class="btn alt" href="https://play.google.com/apps/testing/app.cloverhunter" data-i="tb2">2. Devenir testeur</a></section>
+
+<footer>© 2026 Petit Jardin Studio · <a href="mentions-legales.html" data-i="ml">Mentions légales</a> · <a href="confidentialite.html" data-i="pv">Confidentialité</a></footer>
 <script>
-const en={n1:"The app",n2:"Our story",n3:"Parents",b:"No ads",h:"The screen that sends kids outside",p:"Kids go hunting for four-leaf clovers in their garden. The camera helps them find one, and every find goes into their herbarium.",c:"Coming soon on Google Play",t1:"Find, collect, keep",k1:"I search",k1p:"Kids explore the grass while the phone helps spot the lucky clover.",k2:"I choose",k2p:"Let it grow and become a garden guardian, or pick it and press it.",k3:"My herbarium",k3p:"Every clover found joins their herbarium. Flowers coming soon!",t2:"Our story",s:"As a kid, I spent hours looking for four-leaf clovers in the garden. Today I work in artificial intelligence, and I wanted to put that technology to work for the same magic: real-time detection, right on the phone, to make kids want to go outside. — Jason",t3:"For parents",l1:"✅ No ads, ever",l2:"✅ Everything runs on the phone, no photos uploaded",l3:"✅ Settings protected by a parent code",l4:"✅ Designed for more time outside than on screen",ct:"Contact:",ia:"AI-generated image"};
+const en={n1:"The app",n3:"Parents",n4:"Look-alikes",n5:"Test it",n6:"Technology",b:"No ads · no data collected",h:"The screen that sends kids outside",p:"Kids go hunting for four-leaf clovers in their garden. The camera helps them find one, and every find goes into their collection.",c:"Coming soon on Google Play",c2:"Become a tester",ia:"AI-generated image",
+t1:"Find, count, keep",k1:"I search",k1p:"Kids explore the grass while the phone helps spot the lucky clover. A golden frame lights up when it sees one.",k2:"I count",k2p:"Kids count the leaves themselves: 3 or 4? They learn to look closely.",k3:"My collection",k3p:"Every clover found joins their collection, and Clovy the mascot grows with it. A tutorial shows how to press the real clover.",
+e1:"Home, with Clovy",e2:"The hunter's guide",e3:"Keeping your clover",
+t4:"Real clover or look-alike?",fa:"Many plants look like clover. The app's guide teaches kids to tell them apart.",a1:"✅ The real four-leaf clover",a1p:"Rounded leaflets, often with a pale white “V” on each one. It is the white clover of lawns.",a2:"❌ The “lucky clover” oxalis",a2p:"Heart-shaped leaflets. Sold in pots as a “four-leaf clover”, but it is not a clover!",pc:"Photos: Anne Parsons, Mal Bennett (iNaturalist, CC0).",
+t2:"Our story",s:"As a kid, I spent hours looking for four-leaf clovers in the garden. Today I work in artificial intelligence, and I wanted to put that technology to work for the same magic: real-time detection, right on the phone, to make kids want to go outside. — Jason",
+t3:"For parents",l1:"✅ No ads, ever",l2:"✅ No data collected: no account, no tracking, no photo uploaded. Recognition happens on the phone.",l3:"✅ Parents' area protected by a grown-up question",l4:"✅ Made for kids who can't read yet: big buttons, a talking mascot",l5:"✅ Designed for more time outside than on screen",
+px:"🎁 <b>15 minutes of free hunting every week</b> (refilled every Monday). For unlimited hunting: <b>a single purchase</b>, no subscription, in the parents' area. The collection, the mascot and the guide always stay available.",
+fq:"FAQ",q1:"Which phones?",r1:"Android 8 or newer. Not on iPhone yet.",q2:"Does it need the internet?",r2:"No. Hunting works with no signal, at the bottom of the garden or on holiday. Only the purchase goes through the Play Store.",q3:"What age?",r3:"Mostly 4 to 10, with or without a grown-up.",q4:"The mascot doesn't speak?",r4:"The app uses the phone's text-to-speech. The parents' area tells you if a voice needs to be installed.",q5:"Can the app make mistakes?",r5:"It can, especially from far away. That's why kids always count the leaves themselves before adding a clover to their collection.",ct:"Contact:",
+t5:"Help us test!",tt:"The app is being tested before its release on Google Play. Got an Android phone and a bit of lawn? It's free and takes 2 minutes: 1) join the testers group with your Gmail account, 2) on your phone, open the “Become a tester” link and install the app. Keep it for 14 days and go hunting a few times!",tb:"1. Join the group",tb2:"2. Become a tester",
+t6:"The app in pictures",e0:"The opening",e4:"The introduction",
+t7:"The technology",tc1:"The app uses two neural networks built for this hunt, running <b>entirely on the phone</b>: no photo is ever sent, and everything works offline.",
+tk1:"1. The detector",tk1p:"It scans the camera image at three zoom levels and, in about twenty milliseconds, spots anything that could be a four-leaf clover. It can find several at once.",
+tk2:"2. The verifier",tk2p:"Each candidate is examined in high resolution: leaflet shape, white “V” mark, number of leaves. It learned from a large vision model (DINOv2) before being shrunk for the phone. It needs only 2 ms per clover.",
+tk3:"3. The child",tk3p:"The child has the final say, counting the leaves before adding the clover to the collection. When the app is unsure, it shows “❓ Check it” instead of celebrating.",
+tt1:"What it learned from",tl1:"<li>About 1,600 annotated real four-leaf clovers and thousands of three-leaf clovers, from many photographers.</li><li>Nearly 4,000 photos of look-alikes: wood sorrel, water clover, medick…</li><li>Over 7,000 non-lawn photos: dead leaves, ivy, gardens, flowers…</li><li>Clover drawings and photos of screens, so it isn't fooled.</li><li>“Operated” clovers: starting from real clovers, a leaflet is added or removed to teach it to <i>count</i>.</li>",
+tt2:"Its results",tr1:"Measured on tens of thousands of photos it never saw during training:",tl2:"<li><b>99.9% peace of mind</b>: out of 23,829 everyday, flower, texture and place photos, fewer than 1 in 1,000 triggers a false alert. 17 times fewer than before the verifier.</li><li><b>Not fooled by look-alikes</b>: only 3 false alerts in 5,673 trap photos (wood sorrel, water clover, dead leaves, ivy…).</li><li><b>3 out of 4 four-leaf clovers spotted from the very first frame</b>, on never-seen photos. And while the child sweeps the lawn, the camera analyses several frames per second: every clover quickly gets a second and third chance.</li><li>Top tip: get close! Up close, the detector is at its best.</li>",
+tl3:"Open training data (CC0 / CC BY: iNaturalist, Roboflow Universe, Open Images, Openverse, Wikimedia Commons) and open-source models (Apache 2.0). Authors are credited in the app.",ml:"Legal notice",pv:"Privacy"};
 const fr={};document.querySelectorAll("[data-i]").forEach(e=>fr[e.dataset.i]=e.innerHTML);let cur="fr";
-function tl(){cur=cur=="fr"?"en":"fr";const d=cur=="fr"?fr:en;document.querySelectorAll("[data-i]").forEach(e=>e.innerHTML=d[e.dataset.i]);document.documentElement.lang=cur;document.querySelector(".lang").textContent=cur=="fr"?"EN":"FR"}
+function tl(){cur=cur=="fr"?"en":"fr";const d=cur=="fr"?fr:en;document.querySelectorAll("[data-i]").forEach(e=>{if(d[e.dataset.i]!==undefined)e.innerHTML=d[e.dataset.i]});document.querySelectorAll("img[data-src]").forEach(i=>i.src=i.dataset.src+"-"+cur+".jpg");document.documentElement.lang=cur;document.querySelector(".lang").textContent=cur=="fr"?"EN":"FR"}
 if(navigator.language&&!navigator.language.startsWith("fr"))tl();
 </script></body></html>
