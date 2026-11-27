@@ -21,7 +21,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:16p
 section{padding:60px 6vw}h2{font-size:2rem;color:var(--vert);margin-top:0}
 .cartes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
 .carte{background:#fff;border-radius:24px;padding:24px;box-shadow:0 6px 20px #2e7d3215}.carte .ico{font-size:2.4rem}
-.ecrans{display:flex;gap:22px;justify-content:center;flex-wrap:wrap}
+.ecrans{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;align-items:flex-end}
 .liste{line-height:1.8;padding-left:1.2em}
 .tel{width:150px;border:10px solid #1b3a1d;border-radius:34px;overflow:hidden;box-shadow:0 10px 30px #2e7d3230;background:#fff}
 .tel img{display:block;width:100%}
@@ -55,6 +55,7 @@ footer{text-align:center;padding:40px;color:#567}footer a{color:#567;margin:0 8p
 <section><h2 data-i="t6">L'appli en images</h2><div class="ecrans">
 <figure><div class="tel"><img data-src="img/ouverture" src="img/ouverture-fr.jpg" alt="Écran d'ouverture"></div><figcaption data-i="e0">L'ouverture</figcaption></figure>
 <figure><div class="tel"><img data-src="img/accueil" src="img/accueil-fr.jpg" alt="Écran d'accueil de l'appli"></div><figcaption data-i="e1">L'accueil, avec Trèflou</figcaption></figure>
+<figure><div class="tel"><img src="img/chasse-fr.jpg" alt="La chasse : un trèfle à 4 feuilles repéré"></div><figcaption data-i="e5">La chasse : le cadre doré !</figcaption></figure>
 <figure><div class="tel"><img data-src="img/tutoriel" src="img/tutoriel-fr.jpg" alt="La présentation"></div><figcaption data-i="e4">La présentation</figcaption></figure>
 <figure><div class="tel"><img data-src="img/guide" src="img/guide-fr.jpg" alt="Le guide du chasseur"></div><figcaption data-i="e2">Le guide du chasseur</figcaption></figure>
 <figure><div class="tel"><img data-src="img/garder" src="img/garder-fr.jpg" alt="Garder son trèfle"></div><figcaption data-i="e3">Garder son trèfle</figcaption></figure>
@@ -117,7 +118,7 @@ t3:"For parents",l1:"✅ No ads, ever",l2:"✅ No data collected: no account, no
 px:"🎁 <b>15 minutes of free hunting every week</b> (refilled every Monday). For unlimited hunting: <b>a single purchase</b>, no subscription, in the parents' area. The collection, the mascot and the guide always stay available.",
 fq:"FAQ",q1:"Which phones?",r1:"Android 8 or newer. Not on iPhone yet.",q2:"Does it need the internet?",r2:"No. Hunting works with no signal, at the bottom of the garden or on holiday. Only the purchase goes through the Play Store.",q3:"What age?",r3:"Mostly 4 to 10, with or without a grown-up.",q4:"The mascot doesn't speak?",r4:"The app uses the phone's text-to-speech. The parents' area tells you if a voice needs to be installed.",q5:"Can the app make mistakes?",r5:"It can, especially from far away. That's why kids always count the leaves themselves before adding a clover to their collection.",ct:"Contact:",
 t5:"Help us test!",tt:"The app is being tested before its release on Google Play. Got an Android phone and a bit of lawn? It's free and takes 2 minutes: 1) join the testers group with your Gmail account, 2) on your phone, open the “Become a tester” link and install the app. Keep it for 14 days and go hunting a few times!",tb:"1. Join the group",tb2:"2. Become a tester",
-t6:"The app in pictures",e0:"The opening",e4:"The introduction",
+t6:"The app in pictures",e0:"The opening",e5:"The hunt: the golden frame!",e4:"The introduction",
 t7:"The technology",tc1:"The app uses two neural networks built for this hunt, running <b>entirely on the phone</b>: no photo is ever sent, and everything works offline.",
 tk1:"1. The detector",tk1p:"It scans the camera image at three zoom levels and, in about twenty milliseconds, spots anything that could be a four-leaf clover. It can find several at once.",
 tk2:"2. The verifier",tk2p:"Each candidate is examined in high resolution: leaflet shape, white “V” mark, number of leaves. It learned from a large vision model (DINOv2) before being shrunk for the phone. It needs only 2 ms per clover.",
